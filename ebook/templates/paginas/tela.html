@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+{%block 'main'%}
+    <main>
+
+        <div class="head">
+            <a href="https://github.com/EknoTeYYY">Desenvolvido por EknoTeYYY</a>
+        </div>
+        
+
+        <div class="slide">
+
+        </div>
+  
+
+
+        <h1>Livros recomendados</h1>
+
+        
+        <div class="books">
+            {% for livro in melhores_livros %}
+            <div class="book">
+                <img src="{{livro.imagem.url}}" alt="">
+                <p>{{livro.nome}}</p>
+                <p>R${{livro.valor}}</p>
+                <a href="/">{{livro.porcentagem}}%</a>
+                <a href="{%url 'produto' livro.id%}">Ver mais</a>
+            </div>
+            {% endfor %}
+        </div>
+        
+
+        <h1>Outras opções para você</h1>
+
+       
+        <div class="center">
+            <div class="books2">
+                {%for livro in livros %}
+                <div class="book2">   
+                    <img src="{{livro.imagem.url}}" alt="">
+                    <p>{{livro.nome}}</p>
+                    <p>R${{livro.valor}}</p>
+                    <p>{{livro.porcentagem}}%</p>
+                    <span><a href="{%url 'produto' livro.id%}">Ver mais</a></span>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+        
+    </main>
+{%endblock%}

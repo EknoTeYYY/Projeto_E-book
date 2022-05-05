@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block 'main'%}
+    <main>
+        {%for product in kart%}
+        <div class="produto">
+            <div class="livro">
+                
+                <img src="{{product.livro.imagem.url}}">
+                <div class="textos">
+                    <p>{{product.livro.nome}}</p>
+                    <p>R${{product.livro.valor}}</p>
+                    <p>Avaliação :{{product.livro.porcentagem}}%</p>
+                    <p>quantidade: {{product.quantidade}}</p>
+                    <p>total: {{product.total}}</p>
+                    
+                </div>
+                <div class="botao">
+                    <a href="{%url 'deletar' product.livro.id%}">excluir item do carrinho</a>
+                </div>
+            </div>
+        </div>
+        
+        {%endfor%}
+    </main>
+{%endblock%}

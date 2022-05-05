@@ -1,0 +1,56 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+<body>
+    <div class="principal">
+        <div class="container">
+            <div class="header">
+                <h2>Criar uma conta</h2>
+            </div>
+            
+            <form id="form" class="form" method="POST"> {%csrf_token%}
+
+                {% if messages%}
+                    {% for mensagem in messages%}
+                        <p style="color: red;">{{mensagem}}</p>
+                    {%endfor%}
+                {%endif%}
+
+                <div class="form-control ">
+                    <label for="username">Nome de usuário</label>
+                    <input type="text" id="username" name="username" placeholder="Digite seu nome de usuário...">
+                </div>
+
+                <div class="form-control" >
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Digite seu endereço de email...">
+                </div>
+
+                <div class="form-control">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha...">
+                </div>
+
+                <div class="form-control">
+                    <label for="password-confirmation">Confirme sua senha</label>
+                    <input type="password" id="password2" name="password2" placeholder="Digite sua senha novamente...">
+                </div>
+
+                <button type="submit">Cadastrar</button>
+
+                <div class="form-control">
+                    <label for="">Já possui uma conta ?</label>
+                    <span><a href="{%url 'login'%}">Fazer login</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+<body>
+    <div class="principal">
+        <div class="container">
+            <div class="header">
+                <h2>Login</h2>
+            </div>
+            
+            <form id="form" class="form" method="POST"> {%csrf_token%}
+                <div class="form-control ">
+                    <label for="username">Nome de usuário</label>
+                    <input type="text" id="username" name="username" placeholder="Digite seu nome de usuário...">
+                </div>
+
+                <div class="form-control" >
+                    <label for="email">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha...">
+
+                </div>
+
+                <button type="submit">Entrar</button>
+
+                <div class="form-control">
+                    <label for="">Não possui uma conta ?</label>
+                    <span><a href="{%url 'cad'%}">cadastrar</a></span>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

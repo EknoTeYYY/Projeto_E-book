@@ -1,0 +1,36 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela inicial</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <ul>
+            <li>
+                    <p>LOGO</p>
+                    
+
+                    {%if request.user.is_authenticated%}
+                        <p>{{user.username}}</p>
+                        <div class="sla" style="margin: 0 12px;">
+                            <a href="{%url 'home'%}"><i class="fa-solid fa-house"></i></a>
+                            <a href="{%url 'carrinho'%}"><i class="fa-solid fa-cart-shopping" style="color:indigo;"></i></a>
+                            <a href="{%url 'logout'%}">logout</a>
+                        </div>
+                    {%else%}
+                        <a href="{%url 'login'%}">login</a>
+                    {%endif%}
+            </li>
+        </ul>
+    </header>
+    {%block 'main'%}
+    {%endblock%}
+</body>
+</html>
